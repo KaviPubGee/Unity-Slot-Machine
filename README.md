@@ -22,6 +22,22 @@ The goal of this project is to demonstrate basic Unity development skills, clean
 
 ---
 
+## Thought Process / Approach
+
+The project was planned as a simple 2D UI-based slot machine.
+
+The slot machine is built using Unity UI elements, including images, text, and a button. Each reel uses a masked symbol strip to create a smoother spinning effect instead of only swapping images randomly.
+
+The code is separated into simple responsibilities:
+
+- `SlotSymbol` stores symbol data such as name, sprite, and payout.
+- `Reel` controls the movement and stopping behavior of each reel.
+- `SlotMachineManager` controls the main game flow, including starting spins, checking results, and updating UI text.
+
+The reels spin using randomization to make each result unpredictable. After spinning, the game checks whether all three reels stopped on the same symbol. If they match, the player wins and the payout text is updated.
+
+---
+
 ## How to Play
 
 1. Open the game.
@@ -51,7 +67,7 @@ To make running the build easier, a batch file is included inside the WebGL buil
 
 ### Run on Windows
 
-1. Open the project folder.
+1. Download and open the project folder.
 
 2. Go to:
 
