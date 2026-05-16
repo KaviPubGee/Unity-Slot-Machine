@@ -10,6 +10,10 @@ public class Reel : MonoBehaviour
     [SerializeField] private float symbolHeight = 110f;
     [SerializeField] private float spinSpeed = 900f;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip reelSpinSound;
+
     private SlotSymbol currentSymbol;
     private Vector2 startPosition;
 
@@ -28,6 +32,13 @@ public class Reel : MonoBehaviour
 
     public IEnumerator Spin(SlotSymbol[] symbols, float spinTime)
     {
+        if(!audioSource)
+        {
+            Debug.LogWarning("Please assign a AudioSource");
+        }
+
+        audioSource.PlayOneShot(reelSpinSound);
+
         float timer = 0f;
 
         // Pick the final symbol before the reel starts slowing down.

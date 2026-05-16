@@ -22,6 +22,12 @@ public class SlotMachineManager : MonoBehaviour
     [SerializeField] private float baseSpinTime = 1.2f;
     [SerializeField] private float extraDelayPerReel = 0.4f;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip leverPull;
+    [SerializeField] AudioClip winSound;
+    [SerializeField] AudioClip looseSound;
+
     private bool isSpinning = false;
 
     private void Start()
@@ -41,7 +47,13 @@ public class SlotMachineManager : MonoBehaviour
             return;
         }
 
+        //Check if there is a audio source
+        if (!audioSource)
+        {
+            Debug.LogWarning("Please assign a audio source");
+        }
         //Start the spinning process
+        audioSource.PlayOneShot(leverPull);
         StartCoroutine(SpinRoutine());
     }
 
@@ -97,11 +109,25 @@ public class SlotMachineManager : MonoBehaviour
 
         if (allMatch)
         {
+            //Check if there is a audio source
+            if (!audioSource)
+            {
+                Debug.LogWarning("Please assign a audio source");
+            }
+            audioSource.PlayOneShot(winSound);
+
             resultText.text = "You Win!";
             payoutText.text = "Payout: +" + firstSymbol.payout;
         }
         else
         {
+            //Check if there is a audio source
+            if (!audioSource)
+            {
+                Debug.LogWarning("Please assign a audio source");
+            }
+            audioSource.PlayOneShot(looseSound);
+
             resultText.text = "Try Again!";
             payoutText.text = "Payout: 0";
         }
