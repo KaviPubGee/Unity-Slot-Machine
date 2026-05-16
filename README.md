@@ -59,6 +59,8 @@ Build/WebGL
 
 ### How to Run the WebGL Build
 
+https://github.com/user-attachments/assets/818990a6-ae60-4c21-b087-7567d7cf823e
+
 Unity WebGL builds should be run through a local web server.
 
 Opening `index.html` directly may not work in some browsers because WebGL files can be blocked when loaded using `file://`.
