@@ -9,8 +9,11 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
+# Ignore general build folders, but keep the assignment WebGL build
 [Bb]uilds/
+[Bb]uild/*
+![Bb]uild/[Ww]eb[Gg][Ll]/
+![Bb]uild/[Ww]eb[Gg][Ll]/**
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 *.log
